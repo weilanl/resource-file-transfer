@@ -7,5 +7,7 @@ spring:
       max-request-size: 10GB
 file:
   upload:
+    # The directory where the uploaded files will be stored
     directory: /home/work/fjzyjy/
+    # security settings, make sure the client and server are using the same apiRandomStr
     apiRandomStr: Vn1lWKFM

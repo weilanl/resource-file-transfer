@@ -1,4 +1,6 @@
 upload:
   server:
+    # The URL where the server is running
     url: http://127.0.0.1:7010/api/server/upload/
+    # security settings, make sure the client and server are using the same apiRandomStr
     apiRandomStr: Vn1lWKFM

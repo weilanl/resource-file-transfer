@@ -1,0 +1,11 @@
+server:
+  port: 7010
+spring:
+  servlet:
+    multipart:
+      max-file-size: 10GB
+      max-request-size: 10GB
+file:
+  upload:
+    directory: /home/work/fjzyjy/
+    apiRandomStr: Vn1lWKFM

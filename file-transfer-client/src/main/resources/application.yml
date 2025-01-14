@@ -1,0 +1,4 @@
+upload:
+  server:
+    url: http://127.0.0.1:7010/api/server/upload/
+    apiRandomStr: Vn1lWKFM

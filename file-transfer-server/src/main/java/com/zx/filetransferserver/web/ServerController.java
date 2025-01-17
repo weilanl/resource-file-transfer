@@ -1,16 +1,17 @@
 package com.zx.filetransferserver.web;
 
 import com.zx.common.FileInfo;
+import com.zx.common.TransferDirInfo;
 import com.zx.filetransferserver.service.ServerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import java.util.List;
+
 @Slf4j
 @Controller
 @RequestMapping("/api/server")
@@ -40,5 +41,16 @@ public class ServerController {
             log.error("File upload failed: {}", e.getMessage());
             return ResponseEntity.status(500).body("File upload failed: " + e.getMessage());
         }
+    }
+
+    /**
+     * 根据要同步的目录，查询目录下已同步的文件列表
+     * @param transferDirInfo
+     * @return
+     */
+    @PostMapping("/transferred/file/list")
+    public ResponseEntity<List<String>> transferredFileList(@RequestBody TransferDirInfo transferDirInfo) {
+        List<String> fileList = fileService.transferredFileList(transferDirInfo);
+        return ResponseEntity.ok(fileList);
     }
 }
